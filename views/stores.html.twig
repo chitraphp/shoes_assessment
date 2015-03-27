@@ -1,0 +1,29 @@
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+    <title>shoe shopping</title>
+</head>
+<body>
+    <div class = "container">
+    <h1>stores</h1>
+
+    {% if stores is not empty %}
+        <p>Here are all your stores:</p>
+        <ul>
+            {% for store in stores %}
+                <li><a href="/stores/{{ store.getStoreId }}">{{ store.getStoreName }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+
+
+    <form action='/stores' method='post'>
+        <label for='store_name'>Store Name</label>
+        <input id='store_name' name='store_name' type='text'>
+
+        <button type='submit'>Add Store</button>
+    </form>
+</div>
+
+</body>
+</html>
