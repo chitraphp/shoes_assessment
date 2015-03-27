@@ -19,7 +19,7 @@
         }
         function getStoreId()
         {
-            return $this->brand_id;
+            return $this->store_id;
         }
 
         function setStoreId($new_id)
