@@ -41,10 +41,10 @@
             foreach($returned_stores as $store) {
                 $store_name = $store['store_name'];
                 $store_id = $store['id'];
-                $new_store = new Store(store_name, store_id);
+                $new_store = new Store($store_name, $store_id);
                 array_push($stores, $new_store);
             }
-            return stores;
+            return $stores;
         }
 
         static function deleteAll()
@@ -78,7 +78,7 @@
 
         function getBrands()
         {
-            $query = $GLOBALS['DB']->query("SELECT brands.* FROM stores JOIN brands_stores ON (stores.id = brands_stores.store_id) JOIN  brands ON (brands_stores.brand_id = brands.id) WHERE stores.id = {$this->getStoreId} ");
+            $query = $GLOBALS['DB']->query("SELECT brands.* FROM stores JOIN brands_stores ON (stores.id = brands_stores.store_id) JOIN  brands ON (brands_stores.brand_id = brands.id) WHERE stores.id = {$this->getStoreId()} ");
             $store_brands = $query->fetchAll(PDO::FETCH_ASSOC);
             $brands = array();
             foreach($store_brands as $store_brand) {

@@ -51,7 +51,7 @@
             $this->assertEquals(4, $result);
         }
         // //Create a Student with the id in the constructor and be able to change its value, and then get the new id out.
-        function testSetStudentId()
+        function testSetBrandId()
         {
             //Arrange
             $name = "nike";
@@ -199,66 +199,6 @@
             $result = $test_brand->getStores();
             $this->assertEquals([$test_store,$test_store2], $result);
         }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     }
