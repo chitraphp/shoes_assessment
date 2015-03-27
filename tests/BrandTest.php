@@ -36,7 +36,7 @@
             $test_brand->setBrandName("puma");
             $result = $test_brand->getBrandName();
             //Assert
-            $this->assertEquals($name, $result);
+            $this->assertEquals("puma", $result);
         }
 
         function testGetBrandId()
@@ -63,6 +63,72 @@
             //Assert
             $this->assertEquals(5, $result);
         }
+
+        function testSave()
+        {
+            //Arrange
+            $name = "nike";
+            $id = 4;
+            $test_brand = new Brand($name,$id);
+            $test_brand->save();
+
+            //Act
+            $result = Brand::getAll();
+            //Assert
+            $this->assertEquals([$test_brand], $result);
+        }
+
+        function testGetAll()
+        {
+            //Arrange
+            $name = "nike";
+            $id = 4;
+            $test_brand = new Brand($name,$id);
+            $test_brand->save();
+
+            $name2 = "puma";
+            $id2 = 5;
+            $test_brand2 = new Brand($name2,$id2);
+            $test_brand2->save();
+
+            //Act
+            $result = Brand::getAll();
+            //Assert
+            $this->assertEquals([$test_brand, $test_brand2], $result);
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     }
 ?>
